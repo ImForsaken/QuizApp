@@ -1,0 +1,32 @@
+body {
+    background-color: #007AFF !important;
+}
+
+.bg-success,
+.bg-danger {
+    color: white;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #007AFF !important;
+}
+
+.quizCard {
+    width: 30rem;
+}
+
+.questionAnswerCard:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.cardFooter {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+}
