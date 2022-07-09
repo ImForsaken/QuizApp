@@ -1,5 +1,6 @@
 body {
     background-color: #007AFF !important;
+    min-height: 100vh;
 }
 
 .navbar {

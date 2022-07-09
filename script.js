@@ -1,11 +1,11 @@
 let currentQuestion = 0;
 let rightAnswerCounter = 0;
 let audioSuccess = new Audio('audio/success.mp3');
-let audioWrong = new Audio('audio/wrong.mp3')
+let audioWrong = new Audio('audio/wrong.mp3');
 
 function init() {
     showQuestionsLength();
-    showQuestion()
+    showQuestion();
 }
 
 function showQuestionsLength() { //Shows total amount of questions
@@ -23,24 +23,21 @@ function showQuestion() { //manages the game content
 }
 
 function disableAllAnswers() { //disable all buttons after input
-    document.getElementById('answer1Button').disabled = true;
-    document.getElementById('answer2Button').disabled = true;
-    document.getElementById('answer3Button').disabled = true;
-    document.getElementById('answer4Button').disabled = true;
-
+    for (let i = 1; i < 5; i++) {
+        document.getElementById(`answer${i}Button`).disabled = true;
+    }
 }
 
-function enableAnswerButtons() {
-    document.getElementById('answer1Button').disabled = false;
-    document.getElementById('answer2Button').disabled = false;
-    document.getElementById('answer3Button').disabled = false;
-    document.getElementById('answer4Button').disabled = false;
+function enableAnswerButtons() { //enable all buttons after heading to next question
+    for (let i = 1; i < 5; i++) {
+        document.getElementById(`answer${i}Button`).disabled = false;
+    }
 }
 
 function answer(selection) {
-    let question = questions[currentQuestion]
+    let question = questions[currentQuestion];
     let answerNumber = selection.slice(-1);
-    let idOfRightAnswer = `answer${question['right_answer']}`
+    let idOfRightAnswer = `answer${question['right_answer']}`;
     if (rightAnswerSelected(answerNumber, question)) { //right answer
         rightAnswerProcess(selection);
         disableAllAnswers();
@@ -70,44 +67,40 @@ function rightAnswerSelected(answerNumber, question) {
 function updateProgressbar() {
     let percent = (currentQuestion + 1) / questions.length;
     percent = Math.round(percent * 100);
-    console.log('Fortschritt', percent)
+    console.log('Fortschritt', percent);
     document.getElementById('progressBar').innerHTML = `${percent}%`;
     document.getElementById('progressBar').style = `width: ${percent}%;`;
 }
 
 function updateToNextQuestion() {
     let question = questions[currentQuestion];
-    document.getElementById('currentQuestionNumber').innerHTML = currentQuestion + 1
+    document.getElementById('currentQuestionNumber').innerHTML = currentQuestion + 1;
     let questionText = document.getElementById('questionText');
     document.getElementById('answer1').innerHTML = question['answer1'];
     document.getElementById('answer2').innerHTML = question['answer2'];
     document.getElementById('answer3').innerHTML = question['answer3'];
     document.getElementById('answer4').innerHTML = question['answer4'];
-    questionText.innerHTML = `${question['question']}`
+    questionText.innerHTML = `${question['question']}`;
 }
 
 function nextQuestion() {
     currentQuestion++;
     document.getElementById('nextButton').disabled = true;
-    showQuestionsLength()
-    resetAnswerButtons()
-    showQuestion()
-    enableAnswerButtons()
+    showQuestionsLength();
+    resetAnswerButtons();
+    showQuestion();
+    enableAnswerButtons();
 }
 
 function gameIsOver() {
-    return currentQuestion >= questions.length
+    return currentQuestion >= questions.length;
 }
 
-function resetAnswerButtons() {
-    document.getElementById('answer1').parentNode.classList.remove('bg-success');
-    document.getElementById('answer1').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer2').parentNode.classList.remove('bg-success');
-    document.getElementById('answer2').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer3').parentNode.classList.remove('bg-success');
-    document.getElementById('answer3').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer4').parentNode.classList.remove('bg-success');
-    document.getElementById('answer4').parentNode.classList.remove('bg-danger');
+function resetAnswerButtons() { //adding green and red bg after answer input
+    for (i = 1; i < 5; i++) {
+        document.getElementById('answer' + i).parentNode.classList.remove('bg-success');
+        document.getElementById('answer' + i).parentNode.classList.remove('bg-danger');
+    }
 }
 
 function showEndScreen() {
@@ -116,7 +109,7 @@ function showEndScreen() {
     document.getElementById('amountOfQuestions').innerHTML = rightAnswerCounter;
     document.getElementById('countOfAllAnswers').innerHTML = questions.length;
     document.getElementById('headerImage').src = 'img/winner.png';
-    document.getElementById('result').innerHTML += '<img src="img/brain result.png">';
+    document.getElementById('result').innerHTML = '<img src="img/brain result.png">';
 }
 
 function restartGame() {
