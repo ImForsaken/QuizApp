@@ -1,0 +1,55 @@
+.gray {
+    color: gray;
+}
+
+.green {
+    color: green;
+}
+
+.greenBg {
+    background-color: green;
+}
+
+.orange {
+    color: orange;
+}
+
+.redBg {
+    background-color: red;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-justify {
+    display: flex;
+    justify-content: center;
+}
+
+.hideOverflow {
+    overflow: hidden;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.positionFix {
+    position: fixed;
+    width: 100%;
+    display: unset;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}

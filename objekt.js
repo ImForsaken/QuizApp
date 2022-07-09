@@ -23,11 +23,11 @@ let questions = [{
         "right_answer": 3
     },
     {
-        "question": "Welchen Tag benötigt man um Text kurisv darzustellen?",
-        "answer1": "<b></b>",
-        "answer2": "<i></i>",
-        "answer3": "<br></br>",
-        "answer4": "<button></button>",
+        "question": "Welchen Tag benötigt man um Text kursiv darzustellen?",
+        "answer1": "&ltb&gt&lt/b&gt",
+        "answer2": "&lti&gt&lt/i&gt",
+        "answer3": "&ltbr&gt&lt/br&gt",
+        "answer4": "&ltbutton&gt&lt/button&gt",
         "right_answer": 2
     }
 ]

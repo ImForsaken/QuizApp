@@ -11,6 +11,10 @@
     <script src="objekt.js"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
@@ -24,45 +28,58 @@
             <span class="navbar-brand mb-0 h1">QuizApp</span>
         </div>
     </nav>
+
+
     <div id="contentContainer" class="container">
         <div class="card quizCard">
-            <img src="img/question.jpg" class="card-img-top">
-            <div class="card-body">
+            <img id="headerImage" src="img/question.jpg" class="card-img-top">
+            <div class="progress">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;">25%</div>
+            </div>
+            <div class="card-body" id="endScreen" style="display: none;">
+                <div id="result" class="text-center gameEnd">
+                    Quiz beendet!
+                </div>
+                <div class="text-center">
+                    Du hast <b id="amountOfQuestions">XXX</b> Fragen von <b id="countOfAllAnswers">XXX</b> richtig beantwortet.
+                </div>
+                <div class="buttonCenter">
+                    <button onclick="restartGame()" id="restartButton" type="button" class="btn btn-primary">Erneut spielen</button>
+                </div>
+            </div>
+            <div class="card-body" id="questionBody">
 
                 <h5 id="questionText" class="card-title">Frage</h5>
-                <div onclick="answer('answer1')" class="card questionAnswerCard mb-3">
+                <button id="answer1Button" onclick="answer('answer1')" class="card questionAnswerCard mb-3">
                     <div id="answer1" class="card-body">
                         Antwort1
                     </div>
-                </div>
-
-                <div onclick="answer('answer2')" class="card questionAnswerCard mb-3">
+                </button>
+                <button id="answer2Button" onclick="answer('answer2')" class="card questionAnswerCard mb-3">
                     <div id="answer2" class="card-body">
                         Antwort2
                     </div>
-                </div>
-
-                <div onclick="answer('answer3')" class="card questionAnswerCard mb-3">
+                </button>
+                <button id="answer3Button" onclick="answer('answer3')" class="card questionAnswerCard mb-3">
                     <div id="answer3" class="card-body">
                         Antwort 3
                     </div>
-                </div>
-
-                <div onclick="answer('answer4')" class="card questionAnswerCard mb-3">
+                </button>
+                <button id="answer4Button" onclick="answer('answer4')" class="card questionAnswerCard mb-3">
                     <div id="answer4" class="card-body">
                         Antwort 4
                     </div>
-                </div>
-
+                </button>
                 <div class="cardFooter ">
                     <div>
-                        <b>1</b> von <b id="questionLength">5</b> Fragen
+                        <b id="currentQuestionNumber">1</b> von <b id="questionLength">5</b> Fragen
                     </div>
-                    <button id="nextButton" type="button" disabled class="btn btn-primary">Eingabe</button>
+                    <button onclick="nextQuestion()" id="nextButton" type="button" disabled class="btn btn-primary">Eingabe</button>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

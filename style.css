@@ -2,6 +2,14 @@ body {
     background-color: #007AFF !important;
 }
 
+.navbar {
+    font-family: 'rubik', regular;
+}
+
+.d-none {
+    display: none;
+}
+
 .bg-success,
 .bg-danger {
     color: white;
@@ -11,8 +19,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: calc(100vh - 50px);
     background-color: #007AFF !important;
+}
+
+.card-title {
+    font-family: 'rubik', medium;
+}
+
+.card {
+    width: 100%;
+    font-family: 'rubik', regular;
 }
 
 .quizCard {
@@ -29,4 +46,30 @@ body {
     display: flex;
     justify-content: space-between;
     padding-top: 12px;
+}
+
+.gameEnd {
+    font-size: 38px;
+    font-family: 'rubik', bold;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameEnd img {
+    height: 130px;
+    width: 130px;
+}
+
+.buttonCenter {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+@media (max-width: 365px) {
+    .card {
+        text-align: center;
+    }
 }
